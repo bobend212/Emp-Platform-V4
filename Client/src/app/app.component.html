@@ -1,2 +1,11 @@
+<h1>Welcome</h1>
 
-<p>App Component Works</p>
+<div class="container">
+<ul>
+    <li *ngFor="let user of users">{{user.id}} - {{user.userName}}</li>
+</ul>
+<li><button mat-stroked-button color="primary">Press</button></li>
+<li><button type="button" class="btn btn-primary">
+    Single Button
+  </button></li>
+</div>
