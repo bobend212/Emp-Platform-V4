@@ -2,3 +2,7 @@
 .dropdown-item {
   cursor: pointer;
 }
+
+.navbar-brand {
+  cursor: default;
+}
