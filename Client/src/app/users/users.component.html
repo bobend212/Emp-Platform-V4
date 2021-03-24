@@ -1,1 +1,10 @@
-<p>users works!</p>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.id }}
+    <ul>
+      <li *ngFor="let projects of user.userProject">
+        {{ projects.projectId }}
+      </li>
+    </ul>
+  </li>
+</ul>

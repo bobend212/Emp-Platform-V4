@@ -1,0 +1,12 @@
+<mat-card style="margin: 3px">
+  <mat-card-header>
+    <mat-card-title>{{ project.projectNumber }}</mat-card-title>
+    <mat-card-subtitle>{{ project.projectName }}</mat-card-subtitle>
+  </mat-card-header>
+  <hr />
+  <mat-card-content>
+    <div *ngFor="let user of project.userProject">
+      {{ user.firstName }} {{ user.lastName }}
+    </div>
+  </mat-card-content>
+</mat-card>
