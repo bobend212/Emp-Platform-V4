@@ -1,3 +1,4 @@
+using System.Linq;
 using API.DTOs;
 using API.Models;
 using AutoMapper;
@@ -9,13 +10,15 @@ namespace API.Helpers
         public AutoMapperProfiles()
         {
             // Users
-            CreateMap<AppUser, AppUserDto>();
+            CreateMap<AppUser, AppUserDto>()
+                .ForMember(dto => dto.UserProject, c => c.MapFrom(c => c.UserProject.Select(cs => cs.Project)));
             CreateMap<Project, ProjectForUserDto>();
             CreateMap<UserProject, ProjectForUserDto>();
             //
 
             // Projects
-            CreateMap<Project, ProjectDto>();
+            CreateMap<Project, ProjectDto>()
+                .ForMember(dto => dto.UserProject, c => c.MapFrom(c => c.UserProject.Select(cs => cs.User)));
             CreateMap<AppUser, UserForProjectDto>();
             CreateMap<UserProject, UserForProjectDto>()
                 .ForMember(dto => dto.Id, opt => opt.MapFrom(x => x.UserId));
