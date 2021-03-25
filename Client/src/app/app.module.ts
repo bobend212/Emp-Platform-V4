@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -21,6 +21,8 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import {MatCardModule} from '@angular/material/card';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { ProjectDetailpageComponent } from './project-detailpage/project-detailpage.component';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import {MatCardModule} from '@angular/material/card';
     ProjectsComponent,
     UsersComponent,
     UnauthComponent,
-    ProjectCardComponent
+    ProjectCardComponent,
+    ProjectDetailpageComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,9 @@ import {MatCardModule} from '@angular/material/card';
     MatPaginatorModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

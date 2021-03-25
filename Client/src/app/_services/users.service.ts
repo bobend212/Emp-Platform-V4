@@ -3,12 +3,6 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AppUser } from '../_models/appUser';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('user'))?.token
-  })
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,10 +12,10 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   getUsers() {
-    return this.http.get<AppUser[]>(this.baseUrl + 'users', httpOptions);
+    return this.http.get<AppUser[]>(this.baseUrl + 'users');
   }
 
   getUser(userId: number) {
-    return this.http.get<AppUser>(this.baseUrl + 'users/' + userId, httpOptions);
+    return this.http.get<AppUser>(this.baseUrl + 'users/' + userId);
   }
 }

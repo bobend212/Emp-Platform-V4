@@ -17,7 +17,7 @@ export class ProjectsComponent implements OnInit {
   dataSource: any;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['projectId', 'projectNumber', 'projectName', 'createDate', 'userProject'];
+  displayedColumns: string[] = ['projectId', 'projectNumber', 'projectName', 'createDate', 'userProject', 'actions'];
 
   constructor(private projectsService: ProjectsService) { }
 
