@@ -15,6 +15,7 @@ namespace API.Helpers
             CreateMap<Project, ProjectForUserDto>();
             CreateMap<UserProject, ProjectForUserDto>();
             CreateMap<UserUpdateDto, AppUser>();
+            CreateMap<RegisterDto, AppUser>();
             //
 
             // Projects

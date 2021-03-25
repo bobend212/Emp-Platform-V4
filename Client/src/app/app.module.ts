@@ -10,7 +10,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 import { NavbarComponent } from './navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { UsersComponent } from './users/users.component';
@@ -28,9 +28,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
-
-
-
 
 
 @NgModule({
@@ -53,6 +50,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatButtonModule,
     MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     MatTableModule,
     MatInputModule,
