@@ -1,0 +1,13 @@
+* {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mat-radio-group {
+  display: inline;
+}
+
+.mat-radio-button {
+  margin: 2px;
+}

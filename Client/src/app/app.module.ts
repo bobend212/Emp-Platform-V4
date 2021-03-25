@@ -23,6 +23,14 @@ import { ProjectCardComponent } from './project-card/project-card.component';
 import {MatCardModule} from '@angular/material/card';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { ProjectDetailpageComponent } from './project-detailpage/project-detailpage.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+
+
+
 
 
 @NgModule({
@@ -34,7 +42,8 @@ import { ProjectDetailpageComponent } from './project-detailpage/project-detailp
     UsersComponent,
     UnauthComponent,
     ProjectCardComponent,
-    ProjectDetailpageComponent
+    ProjectDetailpageComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +58,11 @@ import { ProjectDetailpageComponent } from './project-detailpage/project-detailp
     MatInputModule,
     MatSortModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatRadioModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}

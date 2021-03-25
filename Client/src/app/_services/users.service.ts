@@ -15,7 +15,11 @@ export class UsersService {
     return this.http.get<AppUser[]>(this.baseUrl + 'users');
   }
 
-  getUser(userId: number) {
+  getUser(userId) {
     return this.http.get<AppUser>(this.baseUrl + 'users/' + userId);
+  }
+
+  updateUser(appUser: AppUser) {
+    return this.http.put(this.baseUrl + 'users', appUser);
   }
 }

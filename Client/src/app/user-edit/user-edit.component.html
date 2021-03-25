@@ -1,0 +1,30 @@
+<div *ngIf="appUser">
+  <form #editForm="ngForm" id="editForm" (submit)="updateUser()">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput [(ngModel)]="appUser.firstName" name="firstName" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput [(ngModel)]="appUser.lastName" name="lastName" />
+    </mat-form-field>
+
+    <mat-radio-group
+      aria-label="Select an option"
+      [(ngModel)]="appUser.gender"
+      name="gender"
+    >
+      <mat-radio-button value="M">male</mat-radio-button>
+      <mat-radio-button value="F">female</mat-radio-button>
+    </mat-radio-group>
+    <button
+      class="mt-2"
+      mat-stroked-button
+      color="primary"
+      form="editForm"
+      type="submit"
+    >
+      Update
+    </button>
+  </form>
+</div>

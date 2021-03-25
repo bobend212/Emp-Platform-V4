@@ -14,6 +14,7 @@ namespace API.Helpers
                 .ForMember(dto => dto.UserProject, c => c.MapFrom(c => c.UserProject.Select(cs => cs.Project)));
             CreateMap<Project, ProjectForUserDto>();
             CreateMap<UserProject, ProjectForUserDto>();
+            CreateMap<UserUpdateDto, AppUser>();
             //
 
             // Projects

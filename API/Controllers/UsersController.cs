@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using API.Data;
 using API.DTOs;
@@ -32,11 +33,27 @@ namespace API.Controllers
 
         [Authorize]
         [HttpGet("{id}")]
-        public async Task<ActionResult<AppUserDto>> GetUser(int id)
+        public async Task<ActionResult<AppUserDto>> GetUserById(int id)
         {
             var user = await _userRepo.GetUserByIdAsync(id);
             var userToReturn = _mapper.Map<AppUserDto>(user);
-            return userToReturn;
+            return Ok(userToReturn);
+        }
+
+        [Authorize]
+        [HttpPut]
+        public async Task<ActionResult> UpdateUser(UserUpdateDto userUpdateDto)
+        {
+            //var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var user = await _userRepo.GetUserByUsernameAsync(username);
+
+            _mapper.Map(userUpdateDto, user);
+            _userRepo.Update(user);
+
+            if (await _userRepo.SaveAllAsync()) return NoContent();
+
+            return BadRequest("Failed to update user");
         }
     }
 }

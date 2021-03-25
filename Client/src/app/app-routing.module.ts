@@ -5,6 +5,7 @@ import { ProjectDetailpageComponent } from './project-detailpage/project-detailp
 import { ProjectsComponent } from './projects/projects.component';
 import { RegisterComponent } from './register/register.component';
 import { UnauthComponent } from './unauth/unauth.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 import { UsersComponent } from './users/users.component';
 import { AuthGuard } from './_guards/auth.guard';
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'projects', component: ProjectsComponent, canActivate: [AuthGuard]},
   {path: 'projects/:id', component: ProjectDetailpageComponent, canActivate: [AuthGuard]},
   {path: 'users', component: UsersComponent, canActivate: [AuthGuard]},
+  {path: 'user/edit', component: UserEditComponent, canActivate: [AuthGuard]},
   {path: '**', component: HomeComponent}
 ];
 

@@ -1,8 +1,12 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
+import { AppUser } from '../_models/appUser';
 import { User } from '../_models/user';
 import { AccountService } from '../_services/account.service';
+import { UsersService } from '../_services/users.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,9 +16,11 @@ import { AccountService } from '../_services/account.service';
 export class NavbarComponent implements OnInit {
   model: any = {};
 
-  constructor(public accountService: AccountService) { }
+  constructor(public accountService: AccountService, private router: Router) {
+   }
 
   ngOnInit() {
+;
   }
 
   login() {
@@ -27,6 +33,9 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.accountService.logout();
+    this.router.navigateByUrl('/')
   }
+
+
 
 }
