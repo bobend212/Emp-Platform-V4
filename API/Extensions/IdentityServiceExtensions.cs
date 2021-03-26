@@ -39,6 +39,11 @@ namespace API.Extensions
                     };
                 });
 
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+            });
+
             return services;
         }
     }

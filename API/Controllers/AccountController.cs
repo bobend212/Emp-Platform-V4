@@ -40,11 +40,15 @@ namespace API.Controllers
 
             if (!result.Succeeded) return BadRequest(result.Errors);
 
+            var roleResult = await _userManager.AddToRoleAsync(user, "User");
+
+            if (!roleResult.Succeeded) return BadRequest(result.Errors);
+
             return new UserDto
             {
                 Id = user.Id,
                 Username = user.UserName,
-                Token = _tokenService.CreateToken(user)
+                Token = await _tokenService.CreateToken(user)
             };
         }
 
@@ -63,7 +67,7 @@ namespace API.Controllers
             {
                 Id = user.Id,
                 Username = user.UserName,
-                Token = _tokenService.CreateToken(user)
+                Token = await _tokenService.CreateToken(user)
             };
         }
 

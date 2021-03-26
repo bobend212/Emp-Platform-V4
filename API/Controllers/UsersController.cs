@@ -31,7 +31,6 @@ namespace API.Controllers
             return Ok(usersToReturn);
         }
 
-        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<AppUserDto>> GetUserById(int id)
         {
@@ -40,7 +39,6 @@ namespace API.Controllers
             return Ok(userToReturn);
         }
 
-        [Authorize]
         [HttpPut]
         public async Task<ActionResult> UpdateUser(UserUpdateDto userUpdateDto)
         {
