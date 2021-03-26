@@ -28,6 +28,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -40,7 +43,8 @@ import {MatRadioModule} from '@angular/material/radio';
     UnauthComponent,
     ProjectCardComponent,
     ProjectDetailpageComponent,
-    UserEditComponent
+    UserEditComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatFormFieldModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSnackBarModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
