@@ -42,9 +42,9 @@ namespace API.Controllers
         [HttpPut]
         public async Task<ActionResult> UpdateUser(UserUpdateDto userUpdateDto)
         {
-            //var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-            var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var user = await _userRepo.GetUserByUsernameAsync(username);
+            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            //var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var user = await _userRepo.GetUserByIdAsync(userId);
 
             _mapper.Map(userUpdateDto, user);
             _userRepo.Update(user);

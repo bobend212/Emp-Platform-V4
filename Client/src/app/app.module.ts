@@ -30,6 +30,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HasRoleDirective } from './_directives/has-role.directive';
+import { RoleManagementComponent } from './admin/role-management/role-management.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -44,7 +47,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ProjectCardComponent,
     ProjectDetailpageComponent,
     UserEditComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    HasRoleDirective,
+    RoleManagementComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSelectModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
