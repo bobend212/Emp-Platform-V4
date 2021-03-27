@@ -7,6 +7,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 
 
 import { NavbarComponent } from './navbar/navbar.component';
@@ -33,6 +34,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HasRoleDirective } from './_directives/has-role.directive';
 import { RoleManagementComponent } from './admin/role-management/role-management.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { EditRolesModalComponent } from './_modals/edit-roles-modal/edit-roles-modal.component';
 
 
 
@@ -49,7 +51,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     UserEditComponent,
     AdminPanelComponent,
     HasRoleDirective,
-    RoleManagementComponent
+    RoleManagementComponent,
+    EditRolesModalComponent
   ],
   imports: [
     BrowserModule,
@@ -71,10 +74,12 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatCheckboxModule,
     MatRadioModule,
     MatSnackBarModule,
-    MatTabsModule
+    MatTabsModule,
+    ModalModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    BsModalService
   ],
   bootstrap: [AppComponent]
 })
