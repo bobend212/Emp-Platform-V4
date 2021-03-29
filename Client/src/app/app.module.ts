@@ -36,6 +36,8 @@ import { RoleManagementComponent } from './admin/role-management/role-management
 import {MatTabsModule} from '@angular/material/tabs';
 import { EditRolesModalComponent } from './_modals/edit-roles-modal/edit-roles-modal.component';
 import { LoginPanelComponent } from './login-panel/login-panel.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -77,7 +79,9 @@ import { LoginPanelComponent } from './login-panel/login-panel.component';
     MatRadioModule,
     MatSnackBarModule,
     MatTabsModule,
-    ModalModule
+    ModalModule,
+    MatBadgeModule,
+    MatChipsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

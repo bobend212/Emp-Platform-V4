@@ -1,5 +1,6 @@
 import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -17,7 +18,7 @@ export class ProjectsComponent implements OnInit {
   dataSource: any;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['projectId', 'projectNumber', 'projectName', 'createDate', 'userProject', 'actions'];
+  displayedColumns: string[] = ['projectNumber', 'projectName', 'site', 'createDate', 'userProject', 'status', 'actions'];
 
   constructor(private projectsService: ProjectsService) { }
 

@@ -1,21 +1,16 @@
-<!-- <button mat-stroked-button>Add Project</button>
-<br />
-
-<mat-form-field>
-  <input
-    (keyup)="applyFilter($event.target.value)"
-    matInput
-    placeholder="Filter table"
-  />
-</mat-form-field> -->
+<div>
+  <button mat-stroked-button style="margin-right: 10px">Add Project</button>
+  <mat-form-field>
+    <input
+      (keyup)="applyFilter($event.target.value)"
+      matInput
+      placeholder="Filter table"
+    />
+  </mat-form-field>
+</div>
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="projectId">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>#ID</th>
-      <td mat-cell *matCellDef="let element">{{ element.projectId }}</td>
-    </ng-container>
-
     <ng-container matColumnDef="projectNumber">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Number</th>
       <td mat-cell *matCellDef="let element">{{ element.projectNumber }}</td>
@@ -24,6 +19,11 @@
     <ng-container matColumnDef="projectName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
       <td mat-cell *matCellDef="let element">{{ element.projectName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="site">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Site</th>
+      <td mat-cell *matCellDef="let element">{{ element.site }}</td>
     </ng-container>
 
     <ng-container matColumnDef="createDate">
@@ -40,6 +40,26 @@
         <ng-container *ngFor="let designer of element.userProject">
           <div>{{ designer.firstName }} {{ designer.lastName }}</div>
         </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="element.status == 'Done'" class="badge bg-success">{{
+          element.status
+        }}</span>
+        <span
+          *ngIf="element.status == 'In Progress'"
+          class="badge bg-primary"
+          >{{ element.status }}</span
+        >
+        <span *ngIf="element.status == 'Issuing'" class="badge bg-info">{{
+          element.status
+        }}</span>
+        <span *ngIf="element.status == 'Checking'" class="badge bg-warning">{{
+          element.status
+        }}</span>
       </td>
     </ng-container>
 
@@ -63,10 +83,10 @@
   </mat-paginator>
 </div>
 
-<hr />
+<!-- <hr />
 
 <div class="row">
   <div *ngFor="let project of projects" class="col-2">
     <app-project-card [project]="project"></app-project-card>
   </div>
-</div>
+</div> -->
