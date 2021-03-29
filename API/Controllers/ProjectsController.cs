@@ -27,6 +27,14 @@ namespace API.Controllers
             return Ok(projectstoReturn);
         }
 
+        [HttpGet("my-projects/{userId}")]
+        public async Task<ActionResult<IEnumerable<ProjectDto>>> GetProjects(int userId)
+        {
+            var projects = await _projectRepo.GetProjectsByUserIdAsync(userId);
+            var projectstoReturn = _mapper.Map<IEnumerable<ProjectDto>>(projects);
+            return Ok(projectstoReturn);
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<ProjectDto>> GetProject(int id)
         {

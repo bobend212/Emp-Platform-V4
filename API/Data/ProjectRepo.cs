@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using API.Interfaces;
 using API.Models;
@@ -28,6 +29,11 @@ namespace API.Data
         public async Task<IEnumerable<Project>> GetProjectsAsync()
         {
             return await _context.Projects.Include(x => x.UserProject).ThenInclude(z => z.User).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Project>> GetProjectsByUserIdAsync(int userId)
+        {
+            return await _context.UsersProjects.Where(c => c.UserId == userId).Select(x => x.Project).ToListAsync();
         }
 
         public async Task<bool> SaveAllAsync()

@@ -38,6 +38,7 @@ import { EditRolesModalComponent } from './_modals/edit-roles-modal/edit-roles-m
 import { LoginPanelComponent } from './login-panel/login-panel.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatChipsModule} from '@angular/material/chips';
+import { MyProjectsComponent } from './my-projects/my-projects.component';
 
 
 
@@ -56,7 +57,8 @@ import {MatChipsModule} from '@angular/material/chips';
     HasRoleDirective,
     RoleManagementComponent,
     EditRolesModalComponent,
-    LoginPanelComponent
+    LoginPanelComponent,
+    MyProjectsComponent
   ],
   imports: [
     BrowserModule,
