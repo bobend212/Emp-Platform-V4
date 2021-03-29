@@ -35,6 +35,7 @@ import { HasRoleDirective } from './_directives/has-role.directive';
 import { RoleManagementComponent } from './admin/role-management/role-management.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { EditRolesModalComponent } from './_modals/edit-roles-modal/edit-roles-modal.component';
+import { LoginPanelComponent } from './login-panel/login-panel.component';
 
 
 
@@ -52,7 +53,8 @@ import { EditRolesModalComponent } from './_modals/edit-roles-modal/edit-roles-m
     AdminPanelComponent,
     HasRoleDirective,
     RoleManagementComponent,
-    EditRolesModalComponent
+    EditRolesModalComponent,
+    LoginPanelComponent
   ],
   imports: [
     BrowserModule,

@@ -38,7 +38,7 @@
       <td mat-cell *matCellDef="let element">
         <!--THIS IS WHERE YOU ARE ITERATING THROUGH ARRAY OF RULES OBJECT-->
         <ng-container *ngFor="let designer of element.userProject">
-          <div>{{ designer.firstName }} {{ designer.gender }}</div>
+          <div>{{ designer.firstName }} {{ designer.lastName }}</div>
         </ng-container>
       </td>
     </ng-container>

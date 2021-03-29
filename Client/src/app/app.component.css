@@ -1,0 +1,8 @@
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: rgb(214, 212, 212);
+  text-align: center;
+}

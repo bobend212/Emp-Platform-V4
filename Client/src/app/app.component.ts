@@ -10,7 +10,7 @@ import { AccountService } from './_services/account.service';
 export class AppComponent implements OnInit {
   users: any;
 
-  constructor(private accountService: AccountService) {}
+  constructor(public accountService: AccountService) {}
 
   ngOnInit() {
     this.setCurrentUser();
