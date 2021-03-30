@@ -1,5 +1,11 @@
 <div>
-  <button mat-stroked-button style="margin-right: 10px">Add Project</button>
+  <button
+    mat-stroked-button
+    style="margin-right: 10px"
+    (click)="onOpenDialog()"
+  >
+    Add Project
+  </button>
   <mat-form-field>
     <input
       (keyup)="applyFilter($event.target.value)"

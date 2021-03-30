@@ -39,8 +39,8 @@ import { LoginPanelComponent } from './login-panel/login-panel.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatChipsModule} from '@angular/material/chips';
 import { MyProjectsComponent } from './my-projects/my-projects.component';
-
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { NewProjectModalComponent } from './_modals/new-project-modal/new-project-modal.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,8 @@ import { MyProjectsComponent } from './my-projects/my-projects.component';
     RoleManagementComponent,
     EditRolesModalComponent,
     LoginPanelComponent,
-    MyProjectsComponent
+    MyProjectsComponent,
+    NewProjectModalComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +84,8 @@ import { MyProjectsComponent } from './my-projects/my-projects.component';
     MatTabsModule,
     ModalModule,
     MatBadgeModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

@@ -23,4 +23,8 @@ export class ProjectsService {
     return this.http.get<Project[]>(this.baseUrl + 'projects/my-projects/' + userId);
   }
 
+  addProject(model: any) {
+    return this.http.post(this.baseUrl + 'projects/create', model);
+  }
+
 }
