@@ -41,6 +41,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { MyProjectsComponent } from './my-projects/my-projects.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NewProjectModalComponent } from './_modals/new-project-modal/new-project-modal.component';
+import { EditProjectModalComponent } from './_modals/edit-project-modal/edit-project-modal.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { NewProjectModalComponent } from './_modals/new-project-modal/new-projec
     EditRolesModalComponent,
     LoginPanelComponent,
     MyProjectsComponent,
-    NewProjectModalComponent
+    NewProjectModalComponent,
+    EditProjectModalComponent
   ],
   imports: [
     BrowserModule,

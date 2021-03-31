@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using API.DTOs;
@@ -57,5 +58,31 @@ namespace API.Controllers
             await _projectRepo.SaveAllAsync();
             return Ok(project);
         }
+
+        [HttpDelete("{projectId}")]
+        public async Task<ActionResult<Project>> DeleteProject(int projectId)
+        {
+            var project = await _projectRepo.GetProjectByIdAsync(projectId);
+            if (project == null) return NotFound("Project doesn't exist");
+            _projectRepo.DeleteProject(project);
+            await _projectRepo.SaveAllAsync();
+            return Ok();
+        }
+
+        [HttpPut("{projectId}")]
+        public async Task<ActionResult> UpdateProject(int projectId, [FromBody] ProjectUpdateDto projectUpdateDto)
+        {
+            var findProject = await _projectRepo.GetProjectByIdAsync(projectId);
+            if (findProject == null) return NotFound("Project doesn't exist");
+
+            findProject.UpdateDate = DateTime.Now;
+
+            var project = _mapper.Map(projectUpdateDto, findProject);
+            _projectRepo.Update(project);
+            await _projectRepo.SaveAllAsync();
+            return Ok();
+        }
+
+
     }
 }

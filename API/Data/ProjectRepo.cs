@@ -45,5 +45,15 @@ namespace API.Data
         {
             _context.Entry(project).State = EntityState.Modified;
         }
+
+        public void DeleteProject(Project project)
+        {
+            _context.Projects.Remove(project);
+        }
+
+        public async Task<Project> FindProject(int id)
+        {
+            return await _context.Projects.FindAsync(id);
+        }
     }
 }

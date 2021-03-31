@@ -27,6 +27,7 @@ namespace API.Helpers
             //
             CreateMap<ProjectToAddDto, Project>();
 
+            CreateMap<ProjectUpdateDto, Project>();
 
 
         }

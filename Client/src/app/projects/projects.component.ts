@@ -4,6 +4,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { EditProjectModalComponent } from '../_modals/edit-project-modal/edit-project-modal.component';
 import { NewProjectModalComponent } from '../_modals/new-project-modal/new-project-modal.component';
 import { Project } from '../_models/project';
 import { ProjectsService } from '../_services/projects.service';
@@ -46,6 +47,27 @@ export class ProjectsComponent implements OnInit {
     dialogConfig.data = this.projects;
     let dialog = this.matDialog.open(NewProjectModalComponent, dialogConfig);
 
+    dialog.afterClosed().subscribe(() => {
+      this.loadProjects(); 
+    });
+  }
+
+  removeProject(project) {
+    if (confirm('Are you sure?')) {
+      this.projectsService.deleteProject(project.projectId).subscribe(() => {
+        this.loadProjects();
+      })
+    }
+  }
+
+  editProject(project) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = "60%";
+    dialogConfig.data = project;
+
+    console.log(project);
+  
+    let dialog = this.matDialog.open(EditProjectModalComponent, dialogConfig);
     dialog.afterClosed().subscribe(() => {
       this.loadProjects(); 
     });

@@ -11,6 +11,8 @@ namespace API.Interfaces
         Task<IEnumerable<Project>> GetProjectsAsync();
         Task<IEnumerable<Project>> GetProjectsByUserIdAsync(int userId);
         Task<Project> GetProjectByIdAsync(int id);
+        Task<Project> FindProject(int projectId);
         void AddProject(Project project);
+        void DeleteProject(Project project);
     }
 }

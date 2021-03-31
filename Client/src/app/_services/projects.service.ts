@@ -27,4 +27,12 @@ export class ProjectsService {
     return this.http.post(this.baseUrl + 'projects/create', model);
   }
 
+  deleteProject(projectId: number) {
+    return this.http.delete(this.baseUrl + 'projects/' + projectId);
+  }
+
+  editProject(projectId: number, project: Project) {
+    return this.http.put<any>(this.baseUrl + 'projects/' + projectId, project);
+  }
+
 }
