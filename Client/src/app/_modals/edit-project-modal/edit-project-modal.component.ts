@@ -23,7 +23,8 @@ export class EditProjectModalComponent implements OnInit {
   initializeForm() {
     this.newProjectForm = this.fb.group({
       projectNumber: [this.data.projectNumber],
-      projectName: [this.data.projectName]
+      projectName: [this.data.projectName],
+      status: [this.data.status]
     })
   }
 

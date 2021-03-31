@@ -4,5 +4,6 @@ namespace API.DTOs
     {
         public string ProjectNumber { get; set; }
         public string ProjectName { get; set; }
+        public string Status { get; set; }
     }
 }
