@@ -1,0 +1,96 @@
+:root {
+  font-size: 16px;
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+}
+
+body {
+  color: black;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-left: 5rem;
+  padding: 1rem;
+}
+
+.navbar {
+  position: fixed;
+  width: 5rem;
+  height: 100vh;
+  justify-content: center;
+  background-color: #161414;
+  transition: width 200ms ease;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-item:last-child {
+  margin-top: auto;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  text-decoration: none;
+  color: rgb(243, 243, 243);
+  filter: grayscale(100%) opacity(0.5);
+  transition: 600ms;
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  color: rgb(70, 139, 42);
+}
+
+.link-text {
+  display: none;
+  margin-left: 1rem;
+}
+
+.material-icons {
+  font-size: 35px;
+}
+
+.navlink span {
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+.navbar:hover {
+  width: 16rem;
+}
+
+.navbar:hover .link-text {
+  display: block;
+}
+
+.fa-primary {
+  color: #ff7eee;
+}
+
+.fa-secondary {
+  color: #df49a6;
+}
+
+.fa-primary,
+.fa-secondary {
+  transition: 600ms;
+}

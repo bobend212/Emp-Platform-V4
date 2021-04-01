@@ -42,6 +42,7 @@ import { MyProjectsComponent } from './my-projects/my-projects.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NewProjectModalComponent } from './_modals/new-project-modal/new-project-modal.component';
 import { EditProjectModalComponent } from './_modals/edit-project-modal/edit-project-modal.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { EditProjectModalComponent } from './_modals/edit-project-modal/edit-pro
     LoginPanelComponent,
     MyProjectsComponent,
     NewProjectModalComponent,
-    EditProjectModalComponent
+    EditProjectModalComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
