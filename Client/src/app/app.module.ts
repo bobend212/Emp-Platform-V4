@@ -44,6 +44,7 @@ import { NewProjectModalComponent } from './_modals/new-project-modal/new-projec
 import { EditProjectModalComponent } from './_modals/edit-project-modal/edit-project-modal.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

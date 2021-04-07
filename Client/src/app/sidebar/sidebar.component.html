@@ -14,25 +14,21 @@
 <!-- header area end -->
 <!-- sidebar area start -->
 <div class="sidebar">
-  <a routerLink="/" routerLinkActive="active"
-    ><i class="fas fa-home"></i><span>Home</span></a
-  >
-  <a routerLink="/projects" routerLinkActive="active"
+  <a routerLink="/"><i class="fas fa-home"></i><span>Home</span></a>
+  <a routerLink="/projects"
     ><i class="fas fa-tasks"></i><span>Projects</span></a
   >
-  <a routerLink="/my-projects" routerLinkActive="active"
+  <a routerLink="/my-projects"
     ><i class="fas fa-paper-plane"></i><span>My Projects</span></a
   >
-  <a routerLink="/users" routerLinkActive="active"
-    ><i class="fas fa-users"></i><span>Users</span></a
-  >
-  <a *appHasRole="['Admin']" routerLink="/admin" routerLinkActive="active"
+  <a routerLink="/users"><i class="fas fa-users"></i><span>Users</span></a>
+  <a *appHasRole="['Admin']" routerLink="/admin"
     ><i class="fas fa-user-shield"></i><span>Admin Panel</span></a
   >
   <a routerLink="/user/edit" id="user-account"
     ><i class="fas fa-id-card"></i><span>My Profile</span></a
   >
-  <a href="#" id="logout" (click)="logout()"
+  <a id="logout" (click)="logout()"
     ><i class="fas fa-sign-out-alt"></i><span>Logout</span></a
   >
 </div>
