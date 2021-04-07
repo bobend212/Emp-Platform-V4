@@ -1,17 +1,11 @@
-<!-- <div *ngIf="(accountService.currentUser$ | async) === null">
+<div *ngIf="(accountService.currentUser$ | async) === null">
   <app-login-panel></app-login-panel>
 </div>
 
 <div *ngIf="(accountService.currentUser$ | async) != null">
-  <div class="mb-2"><app-navbar></app-navbar></div>
-
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
+  <div><app-sidebar></app-sidebar></div>
 </div>
 
 <footer>
   <p>© 2021 - MK</p>
-</footer> -->
-
-<app-sidebar></app-sidebar>
+</footer>

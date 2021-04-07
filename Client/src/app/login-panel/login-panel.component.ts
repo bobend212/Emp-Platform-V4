@@ -19,7 +19,6 @@ export class LoginPanelComponent implements OnInit {
 
   login() {
     this.accountService.login(this.model).subscribe(response => {
-      this.openSnackBar('Logged In');
     }, error => {
       this.openSnackBar('Invalid credentials');
     })

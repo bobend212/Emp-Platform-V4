@@ -1,3 +1,7 @@
+* {
+  color: #fff;
+}
+
 .boxx {
   position: absolute;
   top: 150px;
@@ -5,7 +9,7 @@
   margin: auto;
   width: 20%;
   padding: 10px;
-  background: white;
+  background: #2f323a;
   border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
   box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.4s ease;
@@ -28,9 +32,33 @@
 mat-form-field {
   width: 85%;
   padding: 0;
+  background: #52555c;
+  border-radius: 5px;
+  margin-top: 2px;
 }
 
-h1 {
+h3 {
   text-align: center;
-  border-bottom: 2px solid silver;
+  border-bottom: 1px solid white;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: white !important;
+  caret-color: red;
+}
+
+h3 span {
+  color: #1dc4e7;
+}
+
+h4 {
+  margin: 0;
+}
+
+button {
+  margin-top: 3px;
+}
+
+input {
+  caret-color: white;
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AccountService } from '../_services/account.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  model: any = {};
 
-  constructor() { }
+  constructor(public accountService: AccountService, private router: Router) {
+   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+  }
+
+  login() {
+    this.accountService.login(this.model).subscribe(response => {
+    }, error => {
+      console.log(error.error);
+    })
+  }
+
+  logout() {
+    this.accountService.logout();
+    this.router.navigateByUrl('/')
   }
 
 }

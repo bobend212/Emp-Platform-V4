@@ -1,81 +1,43 @@
-<body>
-  <nav class="navbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <span class="material-icons"> home </span>
-          <span class="link-text">Home</span>
-        </a>
-      </li>
+<input type="checkbox" id="check" checked />
+<!-- header area start -->
+<header>
+  <label for="check">
+    <i class="fas fa-expand" id="sidebar-btn" style="margin-left: 2px"></i>
+  </label>
+  <div class="left-area">
+    <h3>| Employee <span>Platform</span></h3>
+  </div>
+  <div class="right-area">
+    <p>Welcome, Joe Doe</p>
+  </div>
+</header>
+<!-- header area end -->
+<!-- sidebar area start -->
+<div class="sidebar">
+  <a routerLink="/" routerLinkActive="active"
+    ><i class="fas fa-home"></i><span>Home</span></a
+  >
+  <a routerLink="/projects" routerLinkActive="active"
+    ><i class="fas fa-tasks"></i><span>Projects</span></a
+  >
+  <a routerLink="/my-projects" routerLinkActive="active"
+    ><i class="fas fa-paper-plane"></i><span>My Projects</span></a
+  >
+  <a routerLink="/users" routerLinkActive="active"
+    ><i class="fas fa-users"></i><span>Users</span></a
+  >
+  <a *appHasRole="['Admin']" routerLink="/admin" routerLinkActive="active"
+    ><i class="fas fa-user-shield"></i><span>Admin Panel</span></a
+  >
+  <a routerLink="/user/edit" id="user-account"
+    ><i class="fas fa-id-card"></i><span>My Profile</span></a
+  >
+  <a href="#" id="logout" (click)="logout()"
+    ><i class="fas fa-sign-out-alt"></i><span>Logout</span></a
+  >
+</div>
+<!-- sidebar area end -->
 
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <span class="material-icons"> work </span>
-          <span class="link-text">Projects</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <span class="material-icons"> account_circle </span>
-          <span class="link-text">Users</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <span class="material-icons"> admin_panel_settings </span>
-          <span class="link-text">Admin Panel</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <span class="material-icons"> logout </span>
-          <span class="link-text">Logout</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-
-  <main>
-    <h1>Title 1 sample exampledd...</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae fuga
-      obcaecati eius, soluta illo modi debitis quas, natus quo qui accusantium.
-      Incidunt cumque nesciunt architecto blanditiis, repudiandae rerum aut
-      temporibus.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae fuga
-      obcaecati eius, soluta illo modi debitis quas, natus quo qui accusantium.
-      Incidunt cumque nesciunt architecto blanditiis, repudiandae rerum aut
-      temporibus.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae fuga
-      obcaecati eius, soluta illo modi debitis quas, natus quo qui accusantium.
-      Incidunt cumque nesciunt architecto blanditiis, repudiandae rerum aut
-      temporibus.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae fuga
-      obcaecati eius, soluta illo modi debitis quas, natus quo qui accusantium.
-      Incidunt cumque nesciunt architecto blanditiis, repudiandae rerum aut
-      temporibus.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae fuga
-      obcaecati eius, soluta illo modi debitis quas, natus quo qui accusantium.
-      Incidunt cumque nesciunt architecto blanditiis, repudiandae rerum aut
-      temporibus.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae fuga
-      obcaecati eius, soluta illo modi debitis quas, natus quo qui accusantium.
-      Incidunt cumque nesciunt architecto blanditiis, repudiandae rerum aut
-      temporibus.
-    </p>
-  </main>
-</body>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
