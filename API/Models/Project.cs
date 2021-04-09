@@ -27,6 +27,15 @@ namespace API.Models
         public int UpdateBy { get; set; }
         public string Status { get; set; }
 
+        /*
+            0. No Status
+            1. Active
+            2. Checking
+            3. Done
+            4. Cancelled
+            5. On Hold
+        */
+
         public IList<UserProject> UserProject { get; set; }
     }
 }

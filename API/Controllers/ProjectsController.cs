@@ -20,10 +20,18 @@ namespace API.Controllers
             _projectRepo = projectRepo;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProjectDto>>> GetProjects()
+        [HttpGet("current")]
+        public async Task<ActionResult<IEnumerable<ProjectDto>>> GetCurrentProjects()
         {
-            var projects = await _projectRepo.GetProjectsAsync();
+            var projects = await _projectRepo.GetCurrentProjectsAsync();
+            var projectstoReturn = _mapper.Map<IEnumerable<ProjectDto>>(projects);
+            return Ok(projectstoReturn);
+        }
+
+        [HttpGet("archive")]
+        public async Task<ActionResult<IEnumerable<ProjectDto>>> GetArchiveProjects()
+        {
+            var projects = await _projectRepo.GetArchiveProjectsAsync();
             var projectstoReturn = _mapper.Map<IEnumerable<ProjectDto>>(projects);
             return Ok(projectstoReturn);
         }

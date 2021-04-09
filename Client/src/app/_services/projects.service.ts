@@ -11,8 +11,12 @@ export class ProjectsService {
 
   constructor(private http: HttpClient) { }
 
-  getProjects() {
-    return this.http.get<Project[]>(this.baseUrl + 'projects');
+  getCurrentProjects() {
+    return this.http.get<Project[]>(this.baseUrl + 'projects/current');
+  }
+
+  getArchiveProjects() {
+    return this.http.get<Project[]>(this.baseUrl + 'projects/archive');
   }
 
   getProject(projectId) {

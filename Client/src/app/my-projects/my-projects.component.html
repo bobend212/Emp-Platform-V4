@@ -1,7 +1,6 @@
-<!-- <ul>
-  <li *ngFor="let project of projects">{{ project.projectNumber }}</li>
-</ul> -->
-
+<h3 *ngIf="projects" style="text-align: center">
+  Active and assigned to me: {{ projects.length }}
+</h3>
 <div class="row">
   <div *ngFor="let project of projects" class="col-2">
     <app-project-card [project]="project"></app-project-card>

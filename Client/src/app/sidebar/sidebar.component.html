@@ -15,11 +15,14 @@
 <!-- sidebar area start -->
 <div class="sidebar">
   <a routerLink="/"><i class="fas fa-home"></i><span>Home</span></a>
-  <a routerLink="/projects"
-    ><i class="fas fa-tasks"></i><span>Projects</span></a
+  <a routerLink="/projects/current"
+    ><i class="fas fa-folder-open"></i><span>Projects</span></a
   >
   <a routerLink="/my-projects"
     ><i class="fas fa-paper-plane"></i><span>My Projects</span></a
+  >
+  <a routerLink="/projects/archive"
+    ><i class="fas fa-archive"></i><span>Archive Projects</span></a
   >
   <a routerLink="/users"><i class="fas fa-users"></i><span>Users</span></a>
   <a *appHasRole="['Admin']" routerLink="/admin"

@@ -1,5 +1,4 @@
-import { ViewChild } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,11 +9,11 @@ import { Project } from '../_models/project';
 import { ProjectsService } from '../_services/projects.service';
 
 @Component({
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  selector: 'app-projects-archive',
+  templateUrl: './projects-archive.component.html',
+  styleUrls: ['./projects-archive.component.css']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsArchiveComponent implements OnInit {
   projects: Project[];
 
   dataSource: any;
@@ -33,7 +32,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   loadProjects() {
-    this.projectsService.getCurrentProjects().subscribe(projects => {
+    this.projectsService.getArchiveProjects().subscribe(projects => {
       this.projects = projects;
       this.dataSource = new MatTableDataSource(this.projects);
       this.dataSource.sort = this.sort;

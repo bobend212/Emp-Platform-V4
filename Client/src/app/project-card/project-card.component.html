@@ -1,12 +1,13 @@
 <mat-card style="margin: 3px">
   <mat-card-header>
     <mat-card-title>{{ project.projectNumber }}</mat-card-title>
-    <mat-card-subtitle>{{ project.projectName }}</mat-card-subtitle>
+    <mat-card-subtitle
+      >{{ project.projectName }} / {{ project.site }}</mat-card-subtitle
+    >
   </mat-card-header>
   <hr />
   <mat-card-content>
-    <div *ngFor="let user of project.userProject">
-      {{ user.firstName }} {{ user.lastName }}
-    </div>
+    <p>Due Date:</p>
+    <span> {{ project.updateDate | date: "mediumDate" }}</span>
   </mat-card-content>
 </mat-card>

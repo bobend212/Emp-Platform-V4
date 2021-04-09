@@ -43,7 +43,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { NewProjectModalComponent } from './_modals/new-project-modal/new-project-modal.component';
 import { EditProjectModalComponent } from './_modals/edit-project-modal/edit-project-modal.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-
+import { TagModule } from 'primeng/tag';
+import {ButtonModule} from 'primeng/button';
+import { ProjectsArchiveComponent } from './projects-archive/projects-archive.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     MyProjectsComponent,
     NewProjectModalComponent,
     EditProjectModalComponent,
-    SidebarComponent
+    SidebarComponent,
+    ProjectsArchiveComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ModalModule,
     MatBadgeModule,
     MatChipsModule,
-    MatDialogModule
+    MatDialogModule,
+    TagModule,
+    ButtonModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

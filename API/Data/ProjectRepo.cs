@@ -26,9 +26,18 @@ namespace API.Data
             return await _context.Projects.Include(x => x.UserProject).ThenInclude(z => z.User).SingleOrDefaultAsync(m => m.ProjectId == id);
         }
 
-        public async Task<IEnumerable<Project>> GetProjectsAsync()
+        public async Task<IEnumerable<Project>> GetCurrentProjectsAsync()
         {
-            return await _context.Projects.Include(x => x.UserProject).ThenInclude(z => z.User).ToListAsync();
+            return await _context.Projects.Include(x => x.UserProject).ThenInclude(z => z.User)
+                .Where(x => x.Status == "No Status" || x.Status == "Active" || x.Status == "Checking")
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Project>> GetArchiveProjectsAsync()
+        {
+            return await _context.Projects.Include(x => x.UserProject).ThenInclude(z => z.User)
+                .Where(x => x.Status == "Done" || x.Status == "Cancelled" || x.Status == "On Hold")
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<Project>> GetProjectsByUserIdAsync(int userId)
