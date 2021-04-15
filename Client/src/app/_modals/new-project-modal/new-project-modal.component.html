@@ -1,33 +1,51 @@
-<div class="col-4 mx-auto">
-  <form
-    [formGroup]="newProjectForm"
-    (ngSubmit)="addProject()"
-    autocomplete="off"
-    class="form-group-center"
-  >
-    <h1 class="text-center text-primary">{{ title }}</h1>
-    <hr />
-
-    <div class="form-group">
-      <input
-        type="text"
-        class="form-control"
-        formControlName="projectNumber"
-        placeholder="projectNumber"
-      />
+<form
+  [formGroup]="newProjectForm"
+  (ngSubmit)="addProject()"
+  autocomplete="off"
+  class="form-group"
+>
+  <h3 class="text-center text-primary">
+    <i class="fas fa-folder-plus"></i> {{ title }}
+  </h3>
+  <hr />
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="formGroupExampleInput">Number</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="projectNumber"
+        />
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="formGroupExampleInput">Name</label>
+        <input type="text" class="form-control" formControlName="projectName" />
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="formGroupExampleInput">Status</label>
+        <select class="form-control" formControlName="status">
+          <option value="No Status">No Status</option>
+          <option value="Active">Active</option>
+          <option value="Active - Slab">Active - Slab</option>
+          <option value="Active - BRegs">Active - BRegs</option>
+          <option value="Active - FullSet">Active - FullSet</option>
+          <option value="Active - Issuing">Active - Issuing</option>
+          <option value="Checking">Checking</option>
+          <option value="Done">Done</option>
+          <option value="Done - Sent">Done - Sent</option>
+          <option value="Cancelled">Cancelled</option>
+          <option value="On Hold">On Hold</option>
+        </select>
+      </div>
     </div>
 
-    <div class="form-group">
-      <input
-        type="text"
-        class="form-control"
-        formControlName="projectName"
-        placeholder="projectName"
-      />
-    </div>
-
-    <div class="form-group text-center">
+    <div class="form-group text-center mt-2">
       <button class="btn btn-success" type="submit">Add</button>
     </div>
-  </form>
-</div>
+  </div>
+</form>

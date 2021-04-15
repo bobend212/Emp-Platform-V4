@@ -7,7 +7,7 @@
   >
     <i class="fas fa-plus"></i> Add Project
   </button>
-  <mat-form-field>
+  <mat-form-field style="width: 80%">
     <input
       (keyup)="applyFilter($event.target.value)"
       matInput
@@ -59,11 +59,26 @@
         <span *ngIf="element.status == 'Active'"
           ><p-tag value="Active"></p-tag
         ></span>
+        <span *ngIf="element.status == 'Active - Slab'"
+          ><p-tag value="Active - Slab"></p-tag
+        ></span>
+        <span *ngIf="element.status == 'Active - BRegs'"
+          ><p-tag value="Active - BRegs"></p-tag
+        ></span>
+        <span *ngIf="element.status == 'Active - FullSet'"
+          ><p-tag value="Active - FullSet"></p-tag
+        ></span>
+        <span *ngIf="element.status == 'Active - Issuing'"
+          ><p-tag value="Active - Issuing"></p-tag
+        ></span>
         <span *ngIf="element.status == 'Checking'"
           ><p-tag value="Checking" severity="info"></p-tag
         ></span>
         <span *ngIf="element.status == 'Done'"
           ><p-tag value="Done" severity="success"></p-tag
+        ></span>
+        <span *ngIf="element.status == 'Done - Sent'"
+          ><p-tag value="Done - Sent" severity="success"></p-tag
         ></span>
         <span *ngIf="element.status == 'Cancelled'"
           ><p-tag value="Cancelled" severity="danger"></p-tag

@@ -57,7 +57,7 @@ namespace API.Controllers
         {
             var project = _mapper.Map<Project>(projectDto);
 
-            if (project.Status == null)
+            if (project.Status == null || project.Status == "")
             {
                 project.Status = "No Status";
             }

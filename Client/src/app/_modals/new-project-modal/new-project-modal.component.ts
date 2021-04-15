@@ -14,7 +14,7 @@ export class NewProjectModalComponent implements OnInit {
   newProjectForm: FormGroup;
   projects: Project[];
   dataSource: any;
-  title: string = "Add";
+  title: string = "New Project";
   
   constructor(private fb: FormBuilder, private projectService: ProjectsService, 
     public dialogRef: MatDialogRef<NewProjectModalComponent>) {}
@@ -26,7 +26,8 @@ export class NewProjectModalComponent implements OnInit {
   initializeForm() {
     this.newProjectForm = this.fb.group({
       projectNumber: [''],
-      projectName: ['']
+      projectName: [''],
+      status: ['']
     })
   }
 

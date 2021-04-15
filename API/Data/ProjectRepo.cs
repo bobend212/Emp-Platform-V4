@@ -29,14 +29,15 @@ namespace API.Data
         public async Task<IEnumerable<Project>> GetCurrentProjectsAsync()
         {
             return await _context.Projects.Include(x => x.UserProject).ThenInclude(z => z.User)
-                .Where(x => x.Status == "No Status" || x.Status == "Active" || x.Status == "Checking")
+                .Where(x => x.Status == "No Status" || x.Status == "Active" || x.Status == "Checking" || x.Status == "Active - Slab" || x.Status == "Active - BRegs"
+                || x.Status == "Active - FullSet" || x.Status == "Active - Issuing")
                 .ToListAsync();
         }
 
         public async Task<IEnumerable<Project>> GetArchiveProjectsAsync()
         {
             return await _context.Projects.Include(x => x.UserProject).ThenInclude(z => z.User)
-                .Where(x => x.Status == "Done" || x.Status == "Cancelled" || x.Status == "On Hold")
+                .Where(x => x.Status == "Done" || x.Status == "Done - Sent" || x.Status == "Cancelled" || x.Status == "On Hold")
                 .ToListAsync();
         }
 

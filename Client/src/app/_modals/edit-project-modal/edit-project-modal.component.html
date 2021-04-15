@@ -26,12 +26,20 @@
     </div>
 
     <div class="form-group">
-      <input
-        type="text"
-        class="form-control"
-        formControlName="status"
-        placeholder="status"
-      />
+      <label for="formGroupExampleInput">Status</label>
+      <select class="form-control" formControlName="status">
+        <option value="No Status">No Status</option>
+        <option value="Active">Active</option>
+        <option value="Active - Slab">Active - Slab</option>
+        <option value="Active - BRegs">Active - BRegs</option>
+        <option value="Active - FullSet">Active - FullSet</option>
+        <option value="Active - Issuing">Active - Issuing</option>
+        <option value="Checking">Checking</option>
+        <option value="Done">Done</option>
+        <option value="Done - Sent">Done - Sent</option>
+        <option value="Cancelled">Cancelled</option>
+        <option value="On Hold">On Hold</option>
+      </select>
     </div>
 
     <div class="form-group text-center">
