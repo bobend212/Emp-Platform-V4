@@ -3,14 +3,16 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210415093949_ProjectsExtended")]
+    partial class ProjectsExtended
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -168,10 +170,10 @@ namespace API.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("BRegsIssuedDate")
+                    b.Property<DateTime>("BRegsIssuedDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("BRegsRequiredDate")
+                    b.Property<DateTime>("BRegsRequiredDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("BRegsStageStatus")
@@ -186,7 +188,7 @@ namespace API.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("DeliveryDate")
+                    b.Property<DateTime>("DeliveryDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -201,22 +203,22 @@ namespace API.Data.Migrations
                     b.Property<bool?>("EngReceived")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("FullSetIssuedDate")
+                    b.Property<DateTime>("FullSetIssuedDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("FullSetRequiredDate")
+                    b.Property<DateTime>("FullSetRequiredDate")
                         .HasColumnType("TEXT");
 
                     b.Property<bool?>("Issued")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("IssuingIssuedDate")
+                    b.Property<DateTime>("IssuingIssuedDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("IssuingRequiredDate")
+                    b.Property<DateTime>("IssuingRequiredDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("OrderPlaced")
+                    b.Property<DateTime>("OrderPlaced")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Plot")
@@ -234,10 +236,10 @@ namespace API.Data.Migrations
                     b.Property<string>("Site")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("SlabIssuedDate")
+                    b.Property<DateTime>("SlabIssuedDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("SlabRequiredDate")
+                    b.Property<DateTime>("SlabRequiredDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SlabStageStatus")
@@ -246,7 +248,7 @@ namespace API.Data.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("UpdateDate")
+                    b.Property<DateTime>("UpdateDate")
                         .HasColumnType("TEXT");
 
                     b.HasKey("ProjectId");

@@ -62,6 +62,8 @@ namespace API.Controllers
                 project.Status = "No Status";
             }
 
+            project.CreateDate = DateTime.Now;
+
             _projectRepo.AddProject(project);
             await _projectRepo.SaveAllAsync();
             return Ok(project);
