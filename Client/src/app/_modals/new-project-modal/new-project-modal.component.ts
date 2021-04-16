@@ -27,17 +27,41 @@ export class NewProjectModalComponent implements OnInit {
     this.newProjectForm = this.fb.group({
       projectNumber: [''],
       projectName: [''],
-      status: ['']
+      status: [''],
+      plot: [''],
+      block: [''],
+      site: [''],
+      description: [''],
+      comments: [''],
+      orderPlaced: [null],
+      designInfo: [''],
+      drgsReceived: [false],
+      engReceived: [false],
+      deliveryDate: [null],
+      slabStageStatus: [''],
+      bRegsStageStatus: [''],
+      productionStageStatus: [''],
+      issued: [false],
+      slabRequiredDate: [null],
+      slabIssuedDate: [null],
+      bRegsRequiredDate: [null],
+      bRegsIssuedDate: [null],
+      fullSetRequiredDate: [null],
+      fullSetIssuedDate: [null],
+      issuingRequiredDate: [null],
+      issuingIssuedDate: [null]
     })
   }
 
   addProject() {
     this.projectService.addProject(this.newProjectForm.value).subscribe(response => {
       console.log(response);
+      console.log(this.newProjectForm.value);
       this.dialogRef.close();
     }, error => {
       console.log(error.error);
       console.log(error);
+      console.log(this.newProjectForm.value);
     });
   }
 
