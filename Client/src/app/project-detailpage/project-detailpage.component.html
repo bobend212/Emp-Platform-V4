@@ -1,1 +1,186 @@
-<p *ngIf="project">{{ project.projectNumber }}</p>
+<div class="container" *ngIf="project">
+  <div class="row">
+    <!-- TEAM MEMBERS -->
+    <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Team Members</span>
+        <p-tag
+          value="{{ project.userProject.length }}"
+          severity="warning"
+        ></p-tag>
+      </h4>
+      <ul class="list-group-item">
+        <li
+          class="list-group-item d-flex justify-content-between lh-condensed"
+          *ngFor="let teamMember of project.userProject"
+        >
+          <div>
+            <h6 class="my-0">
+              {{ teamMember.firstName }} {{ teamMember.lastName }}
+            </h6>
+          </div>
+
+          <button
+            class="btn btn-danger btn-sm"
+            type="button"
+            (click)="deleteUserFromProject(teamMember.id)"
+          >
+            <i class="fas fa-minus-circle"></i>
+          </button>
+        </li>
+        <div *ngIf="project.userProject.length <= 0">
+          <p>No members assigned.</p>
+        </div>
+      </ul>
+      <div style="margin-top: 5px">
+        <div class="row">
+          <div class="col">
+            <select
+              class="custom-select"
+              [(ngModel)]="model.userId"
+              [ngModelOptions]="{ standalone: true }"
+            >
+              <option value="000">------------</option>
+              <option *ngFor="let user of users" value="{{ user.id }}">
+                {{ user.firstName }}
+                {{ user.lastName }}
+              </option>
+            </select>
+          </div>
+          <div class="col col-lg-2 mr-2">
+            <button
+              class="btn btn-success"
+              type="button"
+              (click)="assignUserToProject(model)"
+            >
+              <i class="fas fa-plus-circle"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8 order-md-1">
+      <h4 class="text-muted mb-3">Project Details</h4>
+      <table>
+        <tr>
+          <td><strong>Project Number:</strong></td>
+          <td>{{ project.projectNumber }}</td>
+        </tr>
+        <tr>
+          <td><strong>Project Name:</strong></td>
+          <td>{{ project.projectName }}</td>
+        </tr>
+        <tr>
+          <td><strong>Status:</strong></td>
+          <td>{{ project.status }}</td>
+        </tr>
+        <hr />
+        <tr>
+          <td><strong>Plot:</strong></td>
+          <td>{{ project.plot }}</td>
+        </tr>
+        <tr>
+          <td><strong>Block:</strong></td>
+          <td>{{ project.block }}</td>
+        </tr>
+        <tr>
+          <td><strong>Site:</strong></td>
+          <td>{{ project.site }}</td>
+        </tr>
+        <tr>
+          <td><strong>Issed?:</strong></td>
+          <td>{{ project.issued }}</td>
+        </tr>
+        <hr />
+        <tr>
+          <td><strong>Description:</strong></td>
+          <td>{{ project.description }}</td>
+        </tr>
+        <tr>
+          <td><strong>Comments:</strong></td>
+          <td>{{ project.comments }}</td>
+        </tr>
+        <hr />
+        <tr>
+          <td><strong>Order Placed:</strong></td>
+          <td>{{ project.orderPlaced | date: "MMM-d ''yy" }}</td>
+        </tr>
+        <tr>
+          <td><strong>Design Info (ULR):</strong></td>
+          <td>{{ project.designInfo }}</td>
+        </tr>
+        <tr>
+          <td><strong>Drawing Received:</strong></td>
+          <td>{{ project.drgsReceived }}</td>
+        </tr>
+        <tr>
+          <td><strong>Engineering Received:</strong></td>
+          <td>{{ project.engReceived }}</td>
+        </tr>
+        <tr>
+          <td><strong>Delivery Date:</strong></td>
+          <td>{{ project.deliveryDate | date: "MMM-d ''yy" }}</td>
+        </tr>
+        <hr />
+        <tr>
+          <td><strong>Slab Status:</strong></td>
+          <td>{{ project.slabStageStatus }}</td>
+        </tr>
+        <tr>
+          <td><strong>BRegs Status:</strong></td>
+          <td>{{ project.bRegsStageStatus }}</td>
+        </tr>
+        <tr>
+          <td><strong>Production Status:</strong></td>
+          <td>{{ project.productionStageStatus }}</td>
+        </tr>
+        <hr />
+        <tr>
+          <td><strong>Slab/SO:</strong></td>
+          <td>
+            <strong>Request</strong>
+            {{ project.slabRequiredDate | date: "MMM-d ''yy" }}
+          </td>
+          <td>
+            <strong>Issued</strong>
+            {{ project.slabIssuedDate | date: "MMM-d ''yy" }}
+          </td>
+        </tr>
+        <tr>
+          <td><strong>BRegs:</strong></td>
+          <td>
+            <strong>Request</strong>
+            {{ project.bRegsRequiredDate | date: "MMM-d ''yy" }}
+          </td>
+          <td>
+            <strong>Issued</strong>
+            {{ project.bRegsIssuedDate | date: "MMM-d ''yy" }}
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Full Set:</strong></td>
+          <td>
+            <strong>Request</strong>
+            {{ project.fullSetRequiredDate | date: "MMM-d ''yy" }}
+          </td>
+          <td>
+            <strong>Issued</strong>
+            {{ project.fullSetIssuedDate | date: "MMM-d ''yy" }}
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Issuing:</strong></td>
+          <td>
+            <strong>Request</strong>
+            {{ project.issuingRequiredDate | date: "MMM-d ''yy" }}
+          </td>
+          <td>
+            <strong>Issued</strong>
+            {{ project.issuingIssuedDate | date: "MMM-d ''yy" }}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
