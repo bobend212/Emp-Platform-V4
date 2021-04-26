@@ -28,6 +28,7 @@
             <i class="fas fa-minus-circle"></i>
           </button>
         </li>
+
         <div *ngIf="project.userProject.length <= 0">
           <p>No members assigned.</p>
         </div>
@@ -35,7 +36,7 @@
       <div style="margin-top: 5px">
         <div class="row">
           <div class="col">
-            <select
+            <!-- <select
               class="custom-select"
               [(ngModel)]="model.userId"
               [ngModelOptions]="{ standalone: true }"
@@ -45,7 +46,21 @@
                 {{ user.firstName }}
                 {{ user.lastName }}
               </option>
-            </select>
+            </select> -->
+            <p-dropdown
+              [options]="usersNotAssigned"
+              [(ngModel)]="model.userId"
+              placeholder="Select a User"
+              optionLabel="firstName"
+              optionValue="id"
+              [filter]="true"
+            >
+              <ng-template let-user pTemplate="item">
+                <div class="user-item">
+                  <div>{{ user.firstName }} {{ user.lastName }}</div>
+                </div>
+              </ng-template>
+            </p-dropdown>
           </div>
           <div class="col col-lg-2 mr-2">
             <button

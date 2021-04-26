@@ -46,6 +46,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { TagModule } from 'primeng/tag';
 import {ButtonModule} from 'primeng/button';
 import { ProjectsArchiveComponent } from './projects-archive/projects-archive.component';
+import {DropdownModule} from 'primeng/dropdown';
+
 
 @NgModule({
   declarations: [
@@ -95,7 +97,8 @@ import { ProjectsArchiveComponent } from './projects-archive/projects-archive.co
     MatChipsModule,
     MatDialogModule,
     TagModule,
-    ButtonModule
+    ButtonModule,
+    DropdownModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

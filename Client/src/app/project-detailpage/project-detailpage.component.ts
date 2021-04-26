@@ -16,6 +16,7 @@ export class ProjectDetailpageComponent implements OnInit {
   model: any = {};
   modelToDelete: any = {};
   users: AppUser[];
+  usersNotAssigned: AppUser[];
 
   constructor(private projectsService: ProjectsService,private usersService: UsersService, private route: ActivatedRoute) { }
 
@@ -29,6 +30,7 @@ export class ProjectDetailpageComponent implements OnInit {
     this.modelToDelete = {
       projectId: +this.route.snapshot.paramMap.get('id')
     }
+
   }
 
   loadProject() {
@@ -43,6 +45,7 @@ export class ProjectDetailpageComponent implements OnInit {
       this.loadUserListNotAssignedToProject();
     }, error => {
       console.log(error.error);
+      console.log(this.model);
     })
   }
 
@@ -58,6 +61,7 @@ export class ProjectDetailpageComponent implements OnInit {
   loadUserListNotAssignedToProject() {
     this.usersService.getUsersListNotAssignedToSpecifiedProject(+this.route.snapshot.paramMap.get('id')).subscribe(users => {
       this.users = users;
+      this.usersNotAssigned = users;
     }, error => {
       console.log(error.error);
     })
