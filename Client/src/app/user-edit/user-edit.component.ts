@@ -31,6 +31,7 @@ export class UserEditComponent implements OnInit {
   updateUser() {
     this.userService.updateUser(this.appUser).subscribe(() => {
       console.log('successfylly updated')
+      window.location.reload();
     }, error => {
       console.log('error updating')
     })

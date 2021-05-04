@@ -8,7 +8,10 @@
     <h3>| Employee <span>Platform</span></h3>
   </div>
   <div class="right-area">
-    <p>Welcome, Joe Doe</p>
+    <p *ngIf="appUser">
+      Welcome, {{ appUser.firstName | titlecase }}
+      {{ appUser.lastName | titlecase }}
+    </p>
   </div>
 </header>
 <!-- header area end -->

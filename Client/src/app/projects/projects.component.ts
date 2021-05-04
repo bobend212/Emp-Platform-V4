@@ -64,8 +64,6 @@ export class ProjectsComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = "60%";
     dialogConfig.data = project;
-
-    console.log(project);
   
     let dialog = this.matDialog.open(EditProjectModalComponent, dialogConfig);
     dialog.afterClosed().subscribe(() => {

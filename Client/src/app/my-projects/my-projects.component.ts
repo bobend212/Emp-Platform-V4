@@ -12,8 +12,9 @@ import { UsersService } from '../_services/users.service';
   styleUrls: ['./my-projects.component.css']
 })
 export class MyProjectsComponent implements OnInit {
-  projects: Project[];
+  projects: Project[] = [];
   user: User;
+  //projectsTemp: Project[];
 
   constructor(private projectService: ProjectsService, private userService: UsersService, private accountService: AccountService) { 
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
@@ -24,8 +25,17 @@ export class MyProjectsComponent implements OnInit {
   }
 
   loadProjectsByUser() {
+    let projectsTemp = [];
     this.projectService.getProjectsByUser(this.user.id).subscribe(projects => {
-      this.projects = projects;
+      
+      for (var index in projects) {
+        if(projects[index].status == 'Active' || projects[index].status == 'No Status' 
+        || projects[index].status == 'Active - Slab' || projects[index].status == 'Active - BRegs'
+        || projects[index].status == 'Active - FullSet' || projects[index].status == 'Active - Issuing' || projects[index].status == 'Checking') {
+          projectsTemp.push(projects[index]);
+        }
+      }
+      this.projects = projectsTemp;
     }, err => {
       console.log(err.error);
     })

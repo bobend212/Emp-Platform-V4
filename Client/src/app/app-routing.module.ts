@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { MyProjectsComponent } from './my-projects/my-projects.component';
 import { ProjectDetailpageComponent } from './project-detailpage/project-detailpage.component';
 import { ProjectsArchiveComponent } from './projects-archive/projects-archive.component';
+import { ProjectsChartComponent } from './projects-chart/projects-chart.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { RegisterComponent } from './register/register.component';
 import { UnauthComponent } from './unauth/unauth.component';

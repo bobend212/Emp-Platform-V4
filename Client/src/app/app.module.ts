@@ -47,6 +47,9 @@ import { TagModule } from 'primeng/tag';
 import {ButtonModule} from 'primeng/button';
 import { ProjectsArchiveComponent } from './projects-archive/projects-archive.component';
 import {DropdownModule} from 'primeng/dropdown';
+import { ProjectsChartComponent } from './projects-chart/projects-chart.component';
+import { HomeComponent } from './home/home.component';
+import { ChartModule } from 'primeng/chart';
 
 
 @NgModule({
@@ -69,7 +72,9 @@ import {DropdownModule} from 'primeng/dropdown';
     NewProjectModalComponent,
     EditProjectModalComponent,
     SidebarComponent,
-    ProjectsArchiveComponent
+    ProjectsArchiveComponent,
+    ProjectsChartComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +103,8 @@ import {DropdownModule} from 'primeng/dropdown';
     MatDialogModule,
     TagModule,
     ButtonModule,
-    DropdownModule
+    DropdownModule,
+    ChartModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

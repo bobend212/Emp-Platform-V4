@@ -48,11 +48,13 @@
               </option>
             </select> -->
             <p-dropdown
+              *ngIf="usersNotAssigned.length > 0"
               [options]="usersNotAssigned"
               [(ngModel)]="model.userId"
-              placeholder="Select a User"
+              placeholder="Select & Assign"
               optionLabel="firstName"
               optionValue="id"
+              [showClear]="true"
               [filter]="true"
             >
               <ng-template let-user pTemplate="item">
@@ -61,6 +63,7 @@
                 </div>
               </ng-template>
             </p-dropdown>
+            <p *ngIf="usersNotAssigned.length == 0">List is empty.</p>
           </div>
           <div class="col col-lg-2 mr-2">
             <button
@@ -196,6 +199,13 @@
           </td>
         </tr>
       </table>
+      <button
+        class="btn btn-outline-success mt-5"
+        type="button"
+        routerLink="/projects/current"
+      >
+        <i class="fas fa-step-backward"></i> Back to projects
+      </button>
     </div>
   </div>
 </div>
