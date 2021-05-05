@@ -2,16 +2,14 @@
   <div class="row-fluid cards">
     <div class="card shadow card-theme card-bottom">
       <div class="card-header card-header theme">
-        <h5>Monthly Sales by Product</h5>
+        <h5>Number of projects assigned to me:</h5>
       </div>
       <div class="card-body">
-        <p-chart
-          type="doughnut"
-          [data]="data"
-          width="20vw"
-          height="40vh"
-          [responsive]="true"
-        ></p-chart>
+        <div class="card text-center" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title">{{ projects.length }}</h5>
+          </div>
+        </div>
       </div>
     </div>
   </div>

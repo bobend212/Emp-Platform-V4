@@ -1,0 +1,24 @@
+<div class="section-container">
+  <div class="row-fluid cards">
+    <div class="card shadow card-theme card-bottom">
+      <div class="card-header card-header theme">
+        <h5>Projects added in {{ currMonth | date: "MMMM yyy" }}</h5>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let project of tempProjectsAddedCurrentMonth"
+          >
+            <strong
+              >{{ project.projectNumber }} {{ project.projectName }}</strong
+            >
+            <br />
+            added:
+            {{ project.createDate | date: "dd-MMM" }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
