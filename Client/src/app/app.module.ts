@@ -49,6 +49,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ProjectsChartComponent } from './_charts/users-gender-doughnut/users-gender-doughnut.component';
 import { HomeComponent } from './home/home.component';
 import { ChartModule } from 'primeng/chart';
+import { CardModule } from 'primeng/card';
 import { LatestProjectsComponent } from './_charts/latest-projects/latest-projects.component';
 import { AssignedToMeProjectsComponent } from './_charts/assigned-to-me-projects/assigned-to-me-projects.component';
 import { IssuedProjectsChartComponent } from './_charts/issued-projects-chart/issued-projects-chart.component';
@@ -109,6 +110,7 @@ import { IssuedProjectsChartComponent } from './_charts/issued-projects-chart/is
     ButtonModule,
     DropdownModule,
     ChartModule,
+    CardModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

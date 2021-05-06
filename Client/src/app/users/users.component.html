@@ -1,10 +1,14 @@
-<ul>
-  <li *ngFor="let user of users">
-    {{ user.id }}
-    <ul>
-      <li *ngFor="let projects of user.userProject">
-        {{ projects.projectId }}
-      </li>
-    </ul>
-  </li>
-</ul>
+<h3>All Users</h3>
+<div class="card-group">
+  <div class="card" *ngFor="let user of users">
+    <div class="card-body">
+      <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+      <p class="text-secondary mb-1">Job Title</p>
+      <p class="card-text"><i class="fas fa-at"></i> {{ user.email }}</p>
+      <p class="card-text"><i class="fas fa-phone"></i> {{ user.phone }}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{ user.department }}</small>
+    </div>
+  </div>
+</div>
