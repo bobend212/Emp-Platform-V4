@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { take } from 'rxjs/operators';
 import { AppUser } from '../_models/appUser';
 import { User } from '../_models/user';
@@ -8,34 +9,69 @@ import { UsersService } from '../_services/users.service';
 @Component({
   selector: 'app-user-edit',
   templateUrl: './user-edit.component.html',
-  styleUrls: ['./user-edit.component.css']
+  styleUrls: ['./user-edit.component.css'],
 })
 export class UserEditComponent implements OnInit {
   appUser: AppUser;
   user: User;
+  editUserForm: FormGroup;
 
-  constructor(private accountService: AccountService, private userService: UsersService) { 
-    this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
+  constructor(
+    private accountService: AccountService,
+    private userService: UsersService,
+    private fb: FormBuilder
+  ) {
+    this.accountService.currentUser$
+      .pipe(take(1))
+      .subscribe((user) => (this.user = user));
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loadAppUser();
+
+    this.editUserForm = this.fb.group({
+      firstName: [''],
+      lastName: [''],
+      phone: [''],
+      email: [''],
+      gender: [''],
+      department: [''],
+      homeOffice: [false],
+      supervisor: [''],
+      hireDate: [null],
+    });
   }
 
   loadAppUser() {
-    this.userService.getUser(this.user.id).subscribe(appUser => {
+    this.userService.getUser(this.user.id).subscribe((appUser) => {
       this.appUser = appUser;
-    })
+
+      this.editUserForm.setValue({
+        firstName: appUser.firstName,
+        lastName: appUser.lastName,
+        phone: appUser.phone,
+        email: appUser.email,
+        gender: appUser.gender,
+        department: appUser.department,
+        homeOffice: appUser.homeOffice,
+        supervisor: appUser.supervisor,
+        hireDate: appUser.hireDate,
+      });
+    });
   }
+
+  initializeForm() {}
 
   updateUser() {
-    this.userService.updateUser(this.appUser).subscribe(() => {
-      console.log('successfylly updated')
-      window.location.reload();
-    }, error => {
-      console.log('error updating')
-    })
-    
+    this.userService.updateUser(this.editUserForm.value).subscribe(
+      () => {
+        console.log('successfylly updated');
+        window.location.reload();
+      },
+      (error) => {
+        console.log('error updating');
+        console.log(this.editUserForm.value);
+      }
+    );
   }
-
 }

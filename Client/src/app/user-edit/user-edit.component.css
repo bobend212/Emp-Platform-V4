@@ -1,7 +1,5 @@
-* {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+/* * {
+  display: grid;
 }
 
 .mat-radio-group {
@@ -10,4 +8,9 @@
 
 .mat-radio-button {
   margin: 2px;
+} */
+
+* {
+  justify-content: center;
+  text-align: center;
 }
