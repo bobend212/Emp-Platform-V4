@@ -1,4 +1,4 @@
-<mat-card style="margin: 3px">
+<mat-card style="margin: 3px; text-align: center">
   <mat-card-header>
     <mat-card-title>{{ project.projectNumber }}</mat-card-title>
     <mat-card-subtitle
@@ -7,10 +7,7 @@
   </mat-card-header>
   <hr />
   <mat-card-content>
-    <p>Status:</p>
-    <div>{{ project.status }}</div>
-    <br />
-    <p>Delivery Date:</p>
-    <span> {{ project.deliveryDate | date: "mediumDate" }}</span>
+    <p>Status: {{ project.status }}</p>
+    <p>Delivery Date: {{ project.deliveryDate | date: "mediumDate" }}</p>
   </mat-card-content>
 </mat-card>

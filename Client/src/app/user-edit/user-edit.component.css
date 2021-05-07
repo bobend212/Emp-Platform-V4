@@ -1,16 +1,10 @@
-/* * {
-  display: grid;
-}
-
-.mat-radio-group {
-  display: inline;
-}
-
-.mat-radio-button {
-  margin: 2px;
-} */
-
 * {
   justify-content: center;
+}
+
+.center {
+  font-size: 100px;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }

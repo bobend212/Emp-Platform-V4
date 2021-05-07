@@ -5,6 +5,7 @@ import { AppUser } from '../_models/appUser';
 import { User } from '../_models/user';
 import { AccountService } from '../_services/account.service';
 import { UsersService } from '../_services/users.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-edit',
@@ -19,7 +20,8 @@ export class UserEditComponent implements OnInit {
   constructor(
     private accountService: AccountService,
     private userService: UsersService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) {
     this.accountService.currentUser$
       .pipe(take(1))
@@ -27,8 +29,6 @@ export class UserEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadAppUser();
-
     this.editUserForm = this.fb.group({
       firstName: [''],
       lastName: [''],
@@ -38,8 +38,9 @@ export class UserEditComponent implements OnInit {
       department: [''],
       homeOffice: [false],
       supervisor: [''],
-      hireDate: [null],
     });
+
+    this.loadAppUser();
   }
 
   loadAppUser() {
@@ -55,7 +56,6 @@ export class UserEditComponent implements OnInit {
         department: appUser.department,
         homeOffice: appUser.homeOffice,
         supervisor: appUser.supervisor,
-        hireDate: appUser.hireDate,
       });
     });
   }
@@ -65,12 +65,10 @@ export class UserEditComponent implements OnInit {
   updateUser() {
     this.userService.updateUser(this.editUserForm.value).subscribe(
       () => {
-        console.log('successfylly updated');
-        window.location.reload();
+        this.toastr.success('User Details updated successfully');
       },
       (error) => {
-        console.log('error updating');
-        console.log(this.editUserForm.value);
+        this.toastr.error('User Details update error');
       }
     );
   }

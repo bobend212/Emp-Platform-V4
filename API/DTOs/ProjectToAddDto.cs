@@ -1,4 +1,7 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+using API.Helpers;
+using Newtonsoft.Json;
 
 namespace API.DTOs
 {

@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "chart.js": "^2.9.4",
     "ngx-bootstrap": "^6.2.0",
+    "ngx-toastr": "^13.2.1",
     "primeng": "^11.3.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using API.Helpers;
+using Newtonsoft.Json;
 
 namespace API.Models
 {
@@ -40,7 +42,7 @@ namespace API.Models
         public DateTime? IssuingIssuedDate { get; set; }
         public DateTime? DeliveryDate { get; set; }
 
-
         public IList<UserProject> UserProject { get; set; }
     }
 }
+

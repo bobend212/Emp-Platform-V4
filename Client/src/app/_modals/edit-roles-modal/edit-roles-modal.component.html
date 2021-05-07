@@ -10,7 +10,10 @@
         [checked]="role.checked"
         value="role.name"
         (change)="role.checked = !role.checked"
-        [disabled]="role.name === 'Admin' && user.username === 'admin'"
+        [disabled]="
+          (role.name === 'Admin' && user.username === 'admin') ||
+          role.name === 'User'
+        "
       />
       <label>{{ role.name }}</label>
     </div>

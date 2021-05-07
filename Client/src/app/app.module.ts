@@ -29,7 +29,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HasRoleDirective } from './_directives/has-role.directive';
 import { RoleManagementComponent } from './admin/role-management/role-management.component';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -49,10 +48,10 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ProjectsChartComponent } from './_charts/users-gender-doughnut/users-gender-doughnut.component';
 import { HomeComponent } from './home/home.component';
 import { ChartModule } from 'primeng/chart';
-import { CardModule } from 'primeng/card';
 import { LatestProjectsComponent } from './_charts/latest-projects/latest-projects.component';
 import { AssignedToMeProjectsComponent } from './_charts/assigned-to-me-projects/assigned-to-me-projects.component';
 import { IssuedProjectsChartComponent } from './_charts/issued-projects-chart/issued-projects-chart.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -100,7 +99,6 @@ import { IssuedProjectsChartComponent } from './_charts/issued-projects-chart/is
     MatSelectModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatSnackBarModule,
     MatTabsModule,
     ModalModule,
     MatBadgeModule,
@@ -110,7 +108,7 @@ import { IssuedProjectsChartComponent } from './_charts/issued-projects-chart/is
     ButtonModule,
     DropdownModule,
     ChartModule,
-    CardModule,
+    ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

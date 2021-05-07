@@ -1,31 +1,33 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AccountService } from '../_services/account.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminGuard implements CanActivate {
-  constructor(private accountService: AccountService, private _snackBar: MatSnackBar) {}
+  constructor(
+    private accountService: AccountService,
+    private toastr: ToastrService
+  ) {}
 
   canActivate(): Observable<boolean> {
     return this.accountService.currentUser$.pipe(
-      map(user => {
+      map((user) => {
         if (user.roles.includes('Admin') || user.roles.includes('Moderator')) {
           return true;
         }
-        this.openSnackBar("You have not rights for this area!");
+        this.toastr.warning('You have no rights for this area!');
       })
-    )
+    );
   }
-
-  openSnackBar(message: string) {
-    this._snackBar.open(message, 'Dismiss', {
-      duration: 4000
-    });
-  }
-
 }

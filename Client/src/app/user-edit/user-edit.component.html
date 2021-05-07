@@ -1,36 +1,8 @@
-<!-- <div *ngIf="appUser">
-  <form #editForm="ngForm" id="editForm" (submit)="updateUser()">
-    <mat-form-field appearance="fill">
-      <mat-label>First Name</mat-label>
-      <input matInput [(ngModel)]="appUser.firstName" name="firstName" />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Last Name</mat-label>
-      <input matInput [(ngModel)]="appUser.lastName" name="lastName" />
-    </mat-form-field>
-
-    <mat-radio-group
-      aria-label="Select an option"
-      [(ngModel)]="appUser.gender"
-      name="gender"
-    >
-      <mat-radio-button value="M">male</mat-radio-button>
-      <mat-radio-button value="F">female</mat-radio-button>
-    </mat-radio-group>
-    <button
-      class="mt-2"
-      mat-stroked-button
-      color="primary"
-      form="editForm"
-      type="submit"
-    >
-      Update
-    </button>
-  </form>
-</div> -->
-
 <h3>My Profile</h3>
 <hr />
+<div class="center">
+  <i class="far fa-user-circle center"></i>
+</div>
 <form [formGroup]="editUserForm" autocomplete="off" class="form-group">
   <div class="row">
     <!-- FName -->
@@ -94,7 +66,7 @@
     <!-- HomeOffice -->
     <div class="col-md-2">
       <div class="form-group">
-        <label>Home/Office</label>
+        <label>Work from Home or Office?</label>
         <select class="form-control" formControlName="homeOffice">
           <option [ngValue]="false">Home</option>
           <option [ngValue]="true">Office</option>
@@ -106,21 +78,6 @@
       <div class="form-group">
         <label>Supervisor</label>
         <input type="text" class="form-control" formControlName="supervisor" />
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <!--Hire Date -->
-    <div class="col-md-4">
-      <div class="form-group">
-        <label>Hire Date</label>
-        <input
-          onfocus="(this.type='date')"
-          onblur="(this.type='text')"
-          class="form-control"
-          formControlName="hireDate"
-        />
       </div>
     </div>
   </div>

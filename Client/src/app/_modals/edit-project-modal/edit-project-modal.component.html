@@ -1,4 +1,4 @@
-<div class="col-4 mx-auto">
+<!-- <div class="col-4 mx-auto">
   <form
     [formGroup]="newProjectForm"
     autocomplete="off"
@@ -40,4 +40,327 @@
       </button>
     </div>
   </form>
-</div>
+</div> -->
+
+<form [formGroup]="newProjectForm" autocomplete="off" class="form-group">
+  <h3 class="text-center text-primary">
+    <i class="fas fa-edit"></i> Edit Project
+  </h3>
+  <hr />
+  <div class="row g-3">
+    <!-- NUMBER -->
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="projectNumber">Number</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="projectNumber"
+        />
+      </div>
+    </div>
+    <!-- NAME -->
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="projectName">Name</label>
+        <input type="text" class="form-control" formControlName="projectName" />
+      </div>
+    </div>
+    <!-- STATUS -->
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select class="form-control" formControlName="status">
+          <option value="No Status">No Status</option>
+          <option value="Active">Active</option>
+          <option value="Active - Slab">Active - Slab</option>
+          <option value="Active - BRegs">Active - BRegs</option>
+          <option value="Active - FullSet">Active - FullSet</option>
+          <option value="Active - Issuing">Active - Issuing</option>
+          <option value="Checking">Checking</option>
+          <option value="Done">Done</option>
+          <option value="Done - Sent">Done - Sent</option>
+          <option value="Cancelled">Cancelled</option>
+          <option value="On Hold">On Hold</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- PLOT -->
+    <div class="col-md-3">
+      <label for="plot" class="form-label">Plot</label>
+      <input
+        type="text"
+        class="form-control"
+        id="plot"
+        formControlName="plot"
+      />
+    </div>
+    <!-- BLOCK -->
+    <div class="col-md-3">
+      <label for="block" class="form-label">Block</label>
+      <input
+        type="text"
+        class="form-control"
+        id="block"
+        formControlName="block"
+      />
+    </div>
+    <!-- SITE -->
+    <div class="col-md-3">
+      <label for="site" class="form-label">Site</label>
+      <select class="form-control" formControlName="site">
+        <option value="Self-Build">Self-Build</option>
+        <option value="KTS">KTS</option>
+        <option value="external">external</option>
+      </select>
+    </div>
+    <!-- ISSUED -->
+    <div class="col-md-3">
+      <label for="issued" class="form-label">Issued?</label>
+      <select class="form-control" formControlName="issued">
+        <option [ngValue]="false">No</option>
+        <option [ngValue]="true">Yes</option>
+      </select>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="col-md-6">
+      <div class="form-floating">
+        <textarea
+          class="form-control"
+          formControlName="description"
+          id="Description"
+          style="height: 80px"
+        ></textarea>
+        <label for="Description">Description</label>
+      </div>
+    </div>
+
+    <!-- COMMENTS -->
+    <div class="col-md-6">
+      <div class="form-floating">
+        <textarea
+          class="form-control"
+          formControlName="comments"
+          id="Notes"
+          style="height: 80px"
+        ></textarea>
+        <label for="Notes">Notes</label>
+      </div>
+    </div>
+
+    <!-- ORDER PLACED -->
+    <div class="col-md-2">
+      <label class="form-label">Order Placed</label>
+      <input type="date" class="form-control" formControlName="orderPlaced" />
+    </div>
+    <!-- DESIGN INFO -->
+    <div class="col-md-4">
+      <label for="designInfo" class="form-label">Design Info (URL)</label>
+      <input
+        type="text"
+        class="form-control"
+        id="designInfo"
+        formControlName="designInfo"
+      />
+    </div>
+    <!-- DRG RECEIVED -->
+    <div class="col-md-2">
+      <label for="drgsReceived" class="form-label">Drawings Received?</label>
+      <select class="form-control" formControlName="drgsReceived">
+        <option [ngValue]="false">No</option>
+        <option [ngValue]="true">Yes</option>
+      </select>
+    </div>
+    <!-- ENG RECEIVED -->
+    <div class="col-md-2">
+      <label for="engReceived" class="form-label">Engineering Received?</label>
+      <select class="form-control" formControlName="engReceived">
+        <option [ngValue]="false">No</option>
+        <option [ngValue]="true">Yes</option>
+      </select>
+    </div>
+    <!-- DELIVERY DATE -->
+    <div class="col-md-2">
+      <label for="deliveryDate" class="form-label">Delivery Date</label>
+      <input
+        type="date"
+        class="form-control"
+        id="deliveryDate"
+        formControlName="deliveryDate"
+      />
+    </div>
+
+    <!-- SLAB STAGE STATUS -->
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="slabStageStatus">Slab Status</label>
+        <select class="form-control" formControlName="slabStageStatus">
+          <option value="Not Started">Not Started</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- BREGS STAGE STATUS -->
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="bRegsStageStatus">BRegs Status</label>
+        <select class="form-control" formControlName="bRegsStageStatus">
+          <option value="Not Started">Not Started</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- PRODUCTION STAGE STATUS -->
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="productionStageStatus">Production Status</label>
+        <select class="form-control" formControlName="productionStageStatus">
+          <option value="Not Started">Not Started</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <!-- SLAB REQ -->
+      <div class="col-md-2">
+        <label class="form-label">Slab / Setting Outs</label>
+      </div>
+      <div class="col-md-3 mx-auto">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Request</div>
+          </div>
+          <input
+            type="date"
+            class="form-control"
+            formControlName="slabRequiredDate"
+          />
+        </div>
+      </div>
+      <!-- SLAB ISSUED -->
+      <div class="col-md-3 mx-auto">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Issued</div>
+          </div>
+          <input
+            type="date"
+            class="form-control"
+            formControlName="slabIssuedDate"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <!-- BREGS REQ -->
+      <div class="col-md-2">
+        <label class="form-label">Building Regs</label>
+      </div>
+      <div class="col-md-3 mx-auto">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Request</div>
+          </div>
+          <input
+            type="date"
+            class="form-control"
+            formControlName="bRegsRequiredDate"
+          />
+        </div>
+      </div>
+      <!-- BREGS ISSUED -->
+      <div class="col-md-3 mx-auto">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Issued</div>
+          </div>
+          <input
+            type="date"
+            class="form-control"
+            formControlName="bRegsIssuedDate"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <!-- PROD REQ -->
+      <div class="col-md-2">
+        <label class="form-label">Full Set</label>
+      </div>
+      <div class="col-md-3 mx-auto">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Request</div>
+          </div>
+          <input
+            type="date"
+            class="form-control"
+            formControlName="fullSetRequiredDate"
+          />
+        </div>
+      </div>
+      <!-- PROD ISSUED -->
+      <div class="col-md-3 mx-auto">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Issued</div>
+          </div>
+          <input
+            type="date"
+            class="form-control"
+            formControlName="fullSetIssuedDate"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <!-- ISSUING REQ -->
+      <div class="col-md-2">
+        <label class="form-label">Issuing</label>
+      </div>
+      <div class="col-md-3 mx-auto">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Request</div>
+          </div>
+          <input
+            type="date"
+            class="form-control"
+            formControlName="issuingRequiredDate"
+          />
+        </div>
+      </div>
+      <!-- ISSUING ISSUED -->
+      <div class="col-md-3 mx-auto">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Issued</div>
+          </div>
+          <input
+            type="date"
+            class="form-control"
+            formControlName="issuingIssuedDate"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="form-group text-center mt-2">
+      <button class="btn btn-warning" type="submit" (click)="editProject()">
+        Edit
+      </button>
+    </div>
+  </div>
+</form>

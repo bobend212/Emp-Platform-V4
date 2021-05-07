@@ -15,7 +15,6 @@ namespace API.DTOs
         public string Phone { get; set; }
         public string Email { get; set; }
         public bool? HomeOffice { get; set; }
-        public DateTime? HireDate { get; set; }
         public string Supervisor { get; set; }
     }
 }
