@@ -52,6 +52,8 @@ import { LatestProjectsComponent } from './_charts/latest-projects/latest-projec
 import { AssignedToMeProjectsComponent } from './_charts/assigned-to-me-projects/assigned-to-me-projects.component';
 import { IssuedProjectsChartComponent } from './_charts/issued-projects-chart/issued-projects-chart.component';
 import { ToastrModule } from 'ngx-toastr';
+import { TimesheetTableComponent } from './__timesheet/timesheet-table/timesheet-table.component';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,7 @@ import { ToastrModule } from 'ngx-toastr';
     LatestProjectsComponent,
     AssignedToMeProjectsComponent,
     IssuedProjectsChartComponent,
+    TimesheetTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -108,6 +111,7 @@ import { ToastrModule } from 'ngx-toastr';
     ButtonModule,
     DropdownModule,
     ChartModule,
+    TableModule,
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }),
   ],
   providers: [

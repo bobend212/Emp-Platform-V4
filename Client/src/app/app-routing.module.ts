@@ -13,6 +13,7 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 import { UsersComponent } from './users/users.component';
 import { AdminGuard } from './_guards/admin.guard';
 import { AuthGuard } from './_guards/auth.guard';
+import { TimesheetTableComponent } from './__timesheet/timesheet-table/timesheet-table.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -34,6 +35,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
+  {
+    path: 'timesheet',
+    component: TimesheetTableComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'user/edit', component: UserEditComponent, canActivate: [AuthGuard] },
   {
     path: 'admin',
