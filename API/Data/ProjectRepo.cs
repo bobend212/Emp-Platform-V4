@@ -13,7 +13,6 @@ namespace API.Data
         public ProjectRepo(DataContext context)
         {
             _context = context;
-
         }
 
         public void AddProject(Project project)

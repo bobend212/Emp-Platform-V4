@@ -1,176 +1,30 @@
-<p-table
-  [value]="timesheets"
-  dataKey="id"
-  editMode="row"
-  styleClass="p-datatable-sm"
->
-  <ng-template pTemplate="header">
-    <tr>
-      <th rowspan="3">Project</th>
-    </tr>
-    <tr>
-      <th colspan="7">Date</th>
-      <th rowspan="3">Actions</th>
-    </tr>
-    <tr>
-      <th>{{ currentDate | date: "MMM-dd-yyyy" }}</th>
-      <th>{{ myDate | date: "MMM-dd-yyyy" }}</th>
-      <th>{{ currentDate | date: "MMM-dd-yyyy" }}</th>
-      <th>{{ currentDate | date: "MMM-dd-yyyy" }}</th>
-      <th>{{ currentDate | date: "MMM-dd-yyyy" }}</th>
-      <th>{{ currentDate | date: "MMM-dd-yyyy" }}</th>
-      <th>{{ currentDate | date: "MMM-dd-yyyy" }}</th>
-    </tr>
-  </ng-template>
-  <ng-template
-    pTemplate="body"
-    let-timesheet
-    let-editing="editing"
-    let-ri="rowIndex"
-  >
-    <tr [pEditableRow]="timesheet">
-      <td>
-        <p-cellEditor>
-          <ng-template pTemplate="input">
-            <input
-              pInputText
-              type="text"
-              [(ngModel)]="timesheet.project"
-              required
-            />
-          </ng-template>
-          <ng-template pTemplate="output">
-            {{ timesheet.project }}
-          </ng-template>
-        </p-cellEditor>
-      </td>
-      <td>
-        <p-cellEditor>
-          <ng-template pTemplate="input">
-            <input pInputText type="number" [(ngModel)]="timesheet.time" />
-          </ng-template>
-          <ng-template
-            pTemplate="output"
-            *ngIf="timesheet.dates[0].date.getDate() === currentDate.getDate()"
-          >
-            {{ timesheet.time }}
-          </ng-template>
-        </p-cellEditor>
-      </td>
-      <td>
-        <p-cellEditor>
-          <ng-template pTemplate="input">
-            <input pInputText type="number" [(ngModel)]="timesheet.time" />
-          </ng-template>
-          <ng-template
-            pTemplate="output"
-            *ngIf="timesheet.dates[0].date.getDate() === currentDate.getDate()"
-          >
-            {{ timesheet.time }}
-          </ng-template>
-        </p-cellEditor>
-      </td>
-      <td>
-        <p-cellEditor>
-          <ng-template pTemplate="input">
-            <input pInputText type="number" [(ngModel)]="timesheet.time" />
-          </ng-template>
-          <ng-template
-            pTemplate="output"
-            *ngIf="timesheet.dates[0].date.getDate() === currentDate.getDate()"
-          >
-            {{ timesheet.time }}
-          </ng-template>
-        </p-cellEditor>
-      </td>
-      <td>
-        <p-cellEditor>
-          <ng-template pTemplate="input">
-            <input pInputText type="number" [(ngModel)]="timesheet.time" />
-          </ng-template>
-          <ng-template
-            pTemplate="output"
-            *ngIf="timesheet.dates[0].date.getDate() === currentDate.getDate()"
-          >
-            {{ timesheet.time }}
-          </ng-template>
-        </p-cellEditor>
-      </td>
-      <td>
-        <p-cellEditor>
-          <ng-template pTemplate="input">
-            <input pInputText type="number" [(ngModel)]="timesheet.time" />
-          </ng-template>
-          <ng-template
-            pTemplate="output"
-            *ngIf="timesheet.dates[0].date.getDate() === currentDate.getDate()"
-          >
-            {{ timesheet.time }}
-          </ng-template>
-        </p-cellEditor>
-      </td>
-      <td>
-        <p-cellEditor>
-          <ng-template pTemplate="input">
-            <input pInputText type="number" [(ngModel)]="timesheet.time" />
-          </ng-template>
-          <ng-template
-            pTemplate="output"
-            *ngIf="timesheet.dates[0].date.getDate() === currentDate.getDate()"
-          >
-            {{ timesheet.time }}
-          </ng-template>
-        </p-cellEditor>
-      </td>
-      <td>
-        <p-cellEditor>
-          <ng-template pTemplate="input">
-            <input pInputText type="number" [(ngModel)]="timesheet.time" />
-          </ng-template>
-          <ng-template
-            pTemplate="output"
-            *ngIf="timesheet.dates[0].date.getDate() === currentDate.getDate()"
-          >
-            {{ timesheet.time }}
-          </ng-template>
-        </p-cellEditor>
-      </td>
+<!-- <div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-secondary" (click)="prevWeek()">
+    <
+  </button>
+  <button type="button" class="btn btn-secondary" (click)="setCurrentWeek()">
+    Current
+  </button>
+  <button type="button" class="btn btn-secondary" (click)="nextWeek()">
+    >
+  </button>
+</div>
 
-      <td style="text-align: center">
-        <button
-          *ngIf="!editing"
-          pButton
-          pRipple
-          type="button"
-          pInitEditableRow
-          (click)="onRowEditInit(timesheet)"
-          class="p-button-rounded p-button-text"
-        >
-          <i class="fas fa-pencil-alt"></i>
-        </button>
-        <button
-          *ngIf="editing"
-          pButton
-          pRipple
-          type="button"
-          pSaveEditableRow
-          (click)="onRowEditSave(timesheet)"
-          class="p-button-rounded p-button-text p-button-success p-mr-2"
-        >
-          <i class="fas fa-check"></i>
-        </button>
-        <button
-          *ngIf="editing"
-          pButton
-          pRipple
-          type="button"
-          pCancelEditableRow
-          (click)="onRowEditCancel(timesheet, ri)"
-          class="p-button-rounded p-button-text p-button-danger"
-        >
-          <i class="fas fa-times"></i>
-        </button>
-      </td>
+{{ startWeek | date: "dd MMM yyyy" }} - {{ endWeek | date: "dd MMM yyyy" }}
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th scope="col" *ngFor="let item of dates">
+        {{ item | date: "dd MMM yyyy" }}
+      </th>
     </tr>
-  </ng-template>
-</p-table>
+  </thead>
+  <tbody>
+    <td>Prj</td>
+    <td *ngFor="let item of dates"></td>
+  </tbody>
+</table> -->
+
+<p *ngFor="let item of timesheetMonths">{{ item.month }}</p>

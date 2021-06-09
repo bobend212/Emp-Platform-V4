@@ -1,10 +1,7 @@
-export interface Timesheet {
-  id?: string;
-  project: string;
-  dates: TimesheetDate[];
-}
-
-export interface TimesheetDate {
-  date: Date;
-  time: number;
+export interface TimesheetMonth {
+  timesheetMonthId: number;
+  year: number;
+  month: number;
+  totalHoursMonthly: number;
+  approved: boolean;
 }

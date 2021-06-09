@@ -29,7 +29,9 @@ namespace API.Helpers
 
             CreateMap<ProjectUpdateDto, Project>();
 
-
+            // Timesheets
+            CreateMap<TimesheetMonth, TimesheetMonthDto>();
+            CreateMap<TimesheetAddMonthDto, TimesheetMonth>();
         }
     }
 }

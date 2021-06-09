@@ -11,6 +11,11 @@ namespace API.Data
     {
         public DataContext(DbContextOptions options) : base(options) { }
         public DbSet<Project> Projects { get; set; }
+
+        public DbSet<TimesheetMonth> TimesheetMonths { get; set; }
+        public DbSet<TimesheetWeek> TimesheetWeeks { get; set; }
+        public DbSet<Timesheet> Timesheets { get; set; }
+
         public DbSet<UserProject> UsersProjects { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)

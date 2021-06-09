@@ -3,14 +3,16 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210609112819_TimesheetModule")]
+    partial class TimesheetModule
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -260,9 +262,6 @@ namespace API.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
@@ -274,9 +273,6 @@ namespace API.Data.Migrations
 
                     b.Property<float>("Time")
                         .HasColumnType("REAL");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("TimesheetId");
 
@@ -297,17 +293,11 @@ namespace API.Data.Migrations
                     b.Property<bool>("Approved")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("Month")
                         .HasColumnType("INTEGER");
 
                     b.Property<float>("TotalHoursMonthly")
                         .HasColumnType("REAL");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("TEXT");
 
                     b.Property<int>("Year")
                         .HasColumnType("INTEGER");
@@ -325,9 +315,6 @@ namespace API.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("EndWeek")
                         .HasColumnType("TEXT");
 
@@ -339,9 +326,6 @@ namespace API.Data.Migrations
 
                     b.Property<float>("TotalHoursWeekly")
                         .HasColumnType("REAL");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("TWeekId");
 
